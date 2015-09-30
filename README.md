@@ -1,12 +1,12 @@
-
-NXT/NRS Plugin: Asset details
-Plugin for the NXT NRS client that lists all your assets with a link to myNXT website so you can see more details about the asset
+NXT/NRS Plugin: Asset details Plugin for the NXT NRS client that lists all your assets with a link to myNXT website so you can see more details about the asset
 
 Install
 
 You can get the latest release from https://github.com/testdruif/asset_details/releases
 
-Unzip the file and put the folder "asset_details" in the folder ..\nxt\html\ui\plugins
+Unzip the file 
+Rename the folder to "asset_details"
+Place the folder in ..\nxt\html\ui\plugins
 
 Support
 
