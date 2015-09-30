@@ -3,30 +3,41 @@
         <h1>Asset Details</h1>
     </section>
     <section class="content">
-        <div class="data-container data-loading">
-            <table class="table table-striped table-hover" id="p_asset_details_table">
-                <thead>
-                <tr>
-                    <th>Asset Name</th>
-		    <th>Quantity</th>
-                    <th>MyNXT link</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                </tbody>
+	 <div class="data-container data-loading">
+		<table>
+			<tr>
+				<td><strong>Account: </strong></td>
+                                <td><span id="ass_acc"></span></td>
+	                </tr>
+        	        <tr>
+                                <td><strong>Assets: </strong></td>
+                                <td><span id="asset_count"></span></td>
+                	</tr>
+		</table>
+		<br>
+		<br>
+		<table class="table table-striped table-hover" id="p_asset_details_table">
+	                <thead>
+				<tr>
+		                    <th>Asset Name</th>
+				    <th>Quantity</th>
+		                    <th>MyNXT link</th>
+                		</tr>
+	                </thead>
+        	        <tbody>
+	                </tbody>
             </table>
             <div class="data-loading-container"><p>Loading...</p></div>
-            <div class="data-empty-container"><p>No asset for this account.</p></div>
+            <div class="data-empty-container"><p>This account has no assets.</p></div>
 	</div>      
-<center>
-<div>
-<br>
-<br>
-<br>
-<p>The lastest version of this plugin can be found <a href="https://github.com/testdruif/asset_details/releases">here</a></p>
-</div>
- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" style=background-color:blue>Support this plugin</button>
-</center>
+	<center>
+		<div>
+			<br>
+			<br>
+			<br>
+			<p>The lastest version of this plugin can be found <a href="https://github.com/testdruif/asset_details/releases">here</a></p>
+		</div>
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" style=background-color:blue>Support this plugin</button>
+	</center>
     </section>
 </div>
