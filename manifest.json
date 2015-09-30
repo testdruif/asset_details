@@ -3,7 +3,7 @@
   "name": "Asset Details",
   "myVersion": "v.1.0",
   "shortDescription": "Gives an overview of all your assets with a link to Mynxt for more details and graphs",
-  "infoUrl": "https://www.google.com",
+  "infoUrl": "https://nxtforum.org/nxt-plugins/asset-details-links-to-mynxt/",
   "startPage": "p_asset_details",
   "nrsVersion": "1.5.0",
   "deactivated": false
