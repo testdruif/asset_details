@@ -12,6 +12,6 @@ NXT/NRS Plugin: Asset details Plugin for the NXT NRS client that lists all your 
 
 *****Support*****
 
-find me @ nxtforum.org
+Find me @ nxtforum.org
 
 Donations welcome @ NXT-NNGD-V8TN-3MZR-DWWBE
