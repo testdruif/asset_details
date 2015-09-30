@@ -1,4 +1,5 @@
 var NRS = (function(NRS, $, undefined) {
+
 	NRS.pages.p_asset_details = function() {
 		var rows = "";
 		
@@ -18,3 +19,4 @@ var NRS = (function(NRS, $, undefined) {
 	}
 	return NRS;
 }(NRS || {}, jQuery));
+
