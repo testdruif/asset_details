@@ -6,7 +6,9 @@ Install
 
 You can get the latest release from https://github.com/testdruif/asset_details/releases
 
-Unzip the file and put the folder "asset_details" in the folder ..\nxt\html\ui\plugins
+Unzip the file 
+Rename the folder to "asset_details"
+Place the folder in ..\nxt\html\ui\plugins
 
 Support
 
