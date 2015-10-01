@@ -1,43 +1,50 @@
 <div id="p_asset_details_page" class="page">
     <section class="content-header">
         <h1>Asset Details</h1>
+		<br>
+		<table width = 100%>
+			<tr>
+				<td width = 5%><strong>Account: </strong></td>
+                <td><span id="ass_acc"></span></td>
+				<td width = 5% align = center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" 
+style=background-color:blue>Support this plugin</button></td>
+			</tr>
+        	<tr>
+				<td width = 5%><strong>Assets: </strong></td>
+				<td><span id="asset_count"></span></td>
+				<td width = 5% align = center><a href="https://github.com/testdruif/asset_details/releases" target=_blank>Latest version</a></td>
+			</tr>
+		</table>
     </section>
     <section class="content">
-	 <div class="data-container data-loading">
-		<table>
-			<tr>
-				<td><strong>Account: </strong></td>
-                                <td><span id="ass_acc"></span></td>
-	                </tr>
-        	        <tr>
-                                <td><strong>Assets: </strong></td>
-                                <td><span id="asset_count"></span></td>
-                	</tr>
-		</table>
-		<br>
-		<br>
-		<table class="table table-striped table-hover" id="p_asset_details_table">
-	                <thead>
-				<tr>
-		                    <th>Asset Name</th>
-				    <th>Quantity</th>
-		                    <th>MyNXT link</th>
-                		</tr>
-	                </thead>
-        	        <tbody>
-	                </tbody>
-		</table>
-		<div class="data-loading-container"><p>Loading...</p></div>
-		<div class="data-empty-container"><p>This account has no assets.</p></div>
-	</div>      
-	<center>
-		<br>
-		<br>
-		<br>
-		<div>
-			<p>The lastest version of this plugin can be found <a href="https://github.com/testdruif/asset_details/releases" target=_blank>here</a></p>
+		<div style="overflow-y: auto;overflow-x: hidden;float:left; width:35%;height:680px">
+			<div>
+				<span id="DistributionChart" style="display: inline-block;"></span>
+			</div>
+			<div>
+				<div class="data-container data-loading">
+					<table id="p_asset_details_table" width = 100%>
+						<thead>
+							<tr>
+								<td width = 33% align = center><strong>Asset</strong></td>
+								<td width = 33% align = center><strong>Quantity</strong></td>
+								<td width = 33% align = center><strong>Link</strong></td>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<div class="data-loading-container">
+						<center><p>Loading...</p></center>
+					</div>
+					<div class="data-empty-container">
+						<center><p>This account has no assets.</p></center>
+					</div>
+				</div>
+			</div>
 		</div>
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" style=background-color:blue>Support this plugin</button>
-	</center>
-    </section>
+		<div style="float:right;width:65%;height:680px">
+			<iframe name="iframe_info" frameborder = "0" width = 100% height = 680px src="https://mynxt.info" class="p_asset_details_iframe"></iframe>
+		</div>
+    </section> 
 </div>
