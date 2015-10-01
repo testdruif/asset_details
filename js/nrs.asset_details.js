@@ -27,12 +27,11 @@ var NRS = (function(NRS, $, undefined) {
                 },
                 "titleSubtitlePadding": 12
             },
-/**            "size": size || {
+            "size": size || {
                 "canvasHeight": 300,
                 "canvasWidth": 600,
                 "pieOuterRadius": "80%"
             },
-*/
             data: {
                 "sortOrder": "value-desc",
                 "smallSegmentGrouping": {
