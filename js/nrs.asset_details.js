@@ -109,18 +109,28 @@ var NRS = (function(NRS, $, undefined) {
 	AssetAccount = function() {
 		$("#ass_acc").text(NRS.accountRS);
 	}
+	String.prototype.capitalize = function() {
+ 	   return this.charAt(0).toUpperCase() + this.slice(1);
+	}
 	AssetInfo = function() {
+		var content = [];
 		var rows = "";
 		var quantity = 0;
 		NRS.sendRequest("getAccountAssets", {account: NRS.accountRS}, function(response) {
 			$.each(response.accountAssets, function(asset, assetinfo) {
 				quantity = assetinfo.quantityQNT / Math.pow(10, assetinfo.decimals);
 				rows += "<tr>";
-				rows += "<td align = center>" + String(assetinfo.name).escapeHTML() + "</td>";
+				rows += "<td align = left>" + String(assetinfo.name.capitalize()).escapeHTML() + "</td>";
 				rows += "<td align = center>" + String(quantity).escapeHTML() + "</td>";
 				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + String(assetinfo.asset).escapeHTML() + " target = iframe_info>" + "Open in myNXT" + "</a></td>";
 				rows += "</tr>";
+				content.push(rows);
+				rows = "";
 			});
+		content.sort();
+		for (var i in content) {
+		rows += content[i];
+		}
 		NRS.dataLoaded(rows);
 		});
 	}
