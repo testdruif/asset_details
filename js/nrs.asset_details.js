@@ -112,6 +112,7 @@ var NRS = (function(NRS, $, undefined) {
 	String.prototype.capitalize = function() {
  	   return this.charAt(0).toUpperCase() + this.slice(1);
 	}
+
 	AssetInfo = function() {
 		var content = [];
 		var rows = "";
@@ -122,7 +123,7 @@ var NRS = (function(NRS, $, undefined) {
 				rows += "<tr>";
 				rows += "<td align = left>" + String(assetinfo.name.capitalize()).escapeHTML() + "</td>";
 				rows += "<td align = center>" + String(quantity).escapeHTML() + "</td>";
-				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + String(assetinfo.asset).escapeHTML() + " target = iframe_info>" + "Open in myNXT" + "</a></td>";
+				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + String(assetinfo.asset).escapeHTML() + " target = iframe_info>" + "myNXT" + "</a></td>";
 				rows += "</tr>";
 				content.push(rows);
 				rows = "";
