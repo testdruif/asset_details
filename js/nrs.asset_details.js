@@ -82,7 +82,7 @@ var NRS = (function(NRS, $, undefined) {
     };
 	drawpie = function() {
 		var dataContent = [];
-        $.each(NRS.accountInfo.assetBalances, function(field, obj) {
+	        $.each(NRS.accountInfo.assetBalances, function(field, obj) {
 			getAsset(obj.asset, function(asset) {
                 if (asset) {
                     getAssetBidPrice(asset.asset, function(order) {
