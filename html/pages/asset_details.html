@@ -4,15 +4,24 @@
 		<br>
 		<table width = 100%>
 			<tr>
-				<td width = 5%><strong>Account: </strong></td>
+				<td width = 10%><strong>Account ID: </strong></td>
 				<td><span id="ass_acc"></span></td>
-				<td width = 5% align = center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" 
-style=background-color:blue>Support this plugin</button></td>
+				<td rowspan = 2 width = 5% align = center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#send_money_modal" data-account="NXT-NNGD-V8TN-3MZR-DWWBE" data-i18n="send_money" style=background-color:blue>Support this plugin</button></td>
+
 			</tr>
 			<tr>
-				<td width = 5%><strong>Assets: </strong></td>
+				<td width = 10%><strong>Amount of assets: </strong></td>
 				<td><span id="asset_count"></span></td>
-				<td width = 5% align = center><a href="https://github.com/testdruif/asset_details/releases" target=_blank>Latest version</a></td>
+			</tr>
+			<tr>
+				<td width = 10%><strong>Total current value: </strong></td>
+				<td><span id="asset_totalvalue"></span> NXT</td>
+				<td rowspan = 2 width = 5% align = center><a href="https://github.com/testdruif/asset_details/releases" target=_blank>Latest version</a></td>
+
+			</tr>
+			<tr>
+				<td width = 10%><strong>Plugin last loaded: </strong></td>
+				<td><span id="time_loaded"></span></td>
 			</tr>
 		</table>
 	</section>

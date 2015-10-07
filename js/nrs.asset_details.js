@@ -1,7 +1,9 @@
 var NRS = (function(NRS, $, undefined) {
+
 	var getAsset = function(id, cb) {
 		NRS.sendRequest("getAsset+", {"asset": id.toString()}, function(asset, input) {cb(asset);});
 	};
+
 	var getAssetBidPrice = function(id, cb) {
 		NRS.sendRequest("getBidOrders+", {"asset": id.toString(),"firstIndex": 0,"lastIndex": 0}, function(response, input) {
 		if (response.bidOrders.length > 0)
@@ -10,6 +12,7 @@ var NRS = (function(NRS, $, undefined) {
 			cb(null);
 		});
 	};
+
 	var drawChart = function(name, title, contentData, size) {
 		$('#' + name).empty();
 		var pie = new d3pie(name, {
@@ -74,12 +77,14 @@ var NRS = (function(NRS, $, undefined) {
 			}
 		});
 	};
+
 	var draw = function(dataContent) {
 		if (dataContent.length === NRS.accountInfo.assetBalances.length) {
 			$('#asset_details_page>.content').prepend('<span id="DistributionChart"></span>');
 			drawChart('DistributionChart', 'Asset Distribution', dataContent);
 		}
 	};
+
 	drawpie = function() {
 		var dataContent = [];
 		$.each(NRS.accountInfo.assetBalances, function(field, obj) {
@@ -101,17 +106,29 @@ var NRS = (function(NRS, $, undefined) {
 			});
 		});
 	}
+
 	AssetAmount = function() {
 		NRS.sendRequest("getAccountAssetCount", {account: NRS.accountRS}, function(AssetAmount) {
 		$("#asset_count").text(AssetAmount.numberOfAssets);
 		});
 	}
+
+	AssetTotalValue = function(totalvalue) {
+		$("#asset_totalvalue").text(totalvalue);
+	}
+
 	AssetAccount = function() {
 		$("#ass_acc").text(NRS.accountRS);
 	}
+
 	String.prototype.capitalize = function() {
 		return this.charAt(0).toUpperCase() + this.slice(1);
 	}
+	
+	TimeLoaded = function() {
+		$('#time_loaded').html(moment().format('LLL'));
+	}
+
 	function sortcolumn(a, b) {
 		if (a[1] === b[1]) {
 			return 0;
@@ -123,6 +140,7 @@ var NRS = (function(NRS, $, undefined) {
 	var printout = function(content,amount) {
 		if (content.length === amount) {
 			rows = "";
+			totalvalue = 0;
 			content.sort(sortcolumn);
 			for (var i=0; i < content.length; i++) {
 				console.log(i);
@@ -132,6 +150,8 @@ var NRS = (function(NRS, $, undefined) {
 				rows += "<td align = center>" + content[i][3] + "</td>";
 				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][0] + " target = iframe_info>" + "myNXT" + "</a></td>";
 				rows += "</tr>";
+				totalvalue += content[i][3]
+				AssetTotalValue(totalvalue);
 			}
 			NRS.dataLoaded(rows);
 		}
@@ -164,6 +184,7 @@ var NRS = (function(NRS, $, undefined) {
 		});
 	}
 	NRS.pages.p_asset_details = function() {
+		TimeLoaded();
 		AssetAccount();
 		AssetAmount();
 		AssetInfo();
