@@ -1,7 +1,5 @@
 NXT/NRS Plugin: Asset details Plugin for the NXT NRS client that lists all your assets with a link to myNXT website so you can see more details about the asset
 
-Piechart made possible with the help of Chevdor
-
 ![Alt text](https://github.com/testdruif/asset_details/blob/master/asset_details.jpg?raw=true "Optional title")
 
 *****Install*****
