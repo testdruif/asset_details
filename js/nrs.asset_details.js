@@ -85,28 +85,6 @@ var NRS = (function(NRS, $, undefined) {
 		}
 	};
 
-	drawpie = function() {
-		var dataContent = [];
-		$.each(NRS.accountInfo.assetBalances, function(field, obj) {
-			getAsset(obj.asset, function(asset) {
-				if (asset) {
-					getAssetBidPrice(asset.asset, function(order) {
-						var price;
-						if (order)
-							price = order.priceNQT;
-						else
-							price = 1;
-						dataContent.push({
-							label: asset.name,
-							value: parseInt(obj.balanceQNT) * price / (Math.pow(10, 8))
-						});
-						draw(dataContent);
-					});
-				}
-			});
-		});
-	}
-
 	AssetAmount = function() {
 		NRS.sendRequest("getAccountAssetCount", {account: NRS.accountRS}, function(AssetAmount) {
 		$("#asset_count").text(AssetAmount.numberOfAssets);
@@ -125,7 +103,7 @@ var NRS = (function(NRS, $, undefined) {
 		return this.charAt(0).toUpperCase() + this.slice(1);
 	}
 	
-	TimeLoaded = function() {
+	AssetTimeLoaded = function() {
 		$('#time_loaded').html(moment().format('LLL'));
 	}
 
@@ -157,7 +135,8 @@ var NRS = (function(NRS, $, undefined) {
 		}
 	};
 	AssetInfo = function() {
-		var content = [];
+		var contentTable = [];
+		var contentPie = [];
 		NRS.sendRequest("getAccountAssets", {account: NRS.accountRS}, function(response) {
 			$.each(response.accountAssets, function(asset, assetinfo) {
 				var Assetquantity = 0;
@@ -176,19 +155,20 @@ var NRS = (function(NRS, $, undefined) {
 					else {
 						price = 1;
 					}
+					contentPie.push({label: Assetname,value: parseInt(Assetquantityprice) * price / (Math.pow(10, 8))});
+					draw(contentPie);
 					Assetvalue = parseInt(Assetquantityprice) * price / (Math.pow(10, 8));
-					content.push([Assetid,Assetname,Assetquantity,Assetvalue]);
-					printout(content, response.accountAssets.length);
+					contentTable.push([Assetid,Assetname,Assetquantity,Assetvalue]);
+					printout(contentTable, response.accountAssets.length);
 				});
 			});
 		});
 	}
 	NRS.pages.p_asset_details = function() {
-		TimeLoaded();
+		AssetTimeLoaded();
 		AssetAccount();
 		AssetAmount();
 		AssetInfo();
-		drawpie();
 		NRS.dataLoaded();
 	}
 	return NRS;
