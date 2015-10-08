@@ -1,3 +1,8 @@
+*****Version 2.4.1***** 08/10/2015
+
+* Fixed issue with quantity of assets not being calculated correctly (decimals)
+* Fixed issue with price of ask and bid not being calculated correctly (decimals)
+
 *****Version 2.4***** 08/10/2015
 
 * Added highest ask price
