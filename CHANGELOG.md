@@ -1,6 +1,6 @@
 *****Version 2.4***** 08/10/2015
 
-* Added highest ask price*
+* Added highest ask price
 
 * Added highest bid price
 
