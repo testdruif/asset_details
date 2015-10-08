@@ -163,7 +163,7 @@ var NRS = (function(NRS, $, undefined) {
 					getAssetAskPrice(Assetid, function (askorder) {
 						if (askorder) {
 							Assetaskprice = askorder.priceNQT * Math.pow(10,AssetDecimal);
-							}
+						}
 						else {
 							Assetaskprice = 1;
 						}
