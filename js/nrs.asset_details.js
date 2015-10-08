@@ -128,9 +128,10 @@ var NRS = (function(NRS, $, undefined) {
 				rows += "<td align = center>" + content[i][5] + "</td>";
 				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][0] + " target = iframe_info>" + "Info" + "</a></td>";
 				rows += "</tr>";
+				console.log(content[i][3]);
 				totalvalue += content[i][3];
 			}
-			AssetTotalValue(Math.round(totalvalue));
+			AssetTotalValue(totalvalue);
 			NRS.dataLoaded(rows);
 		}
 	};
@@ -171,7 +172,7 @@ var NRS = (function(NRS, $, undefined) {
 						Assetbidpricerev = Assetbidprice / (Math.pow(10, 8));
 						contentPie.push({label: Assetname,value: parseInt(Assetquantity) * Assetbidprice / (Math.pow(10, 8))});
 						draw(contentPie);
-						Assetvalue = parseInt(Assetquantity) * Assetbidpricerev;
+						Assetvalue = Math.round(parseInt(Assetquantity) * Assetbidpricerev);
 						contentTable.push([Assetid,Assetname,Assetquantity,Assetvalue,Assetaskpricerev,Assetbidpricerev]);
 						printout(contentTable, response.accountAssets.length);
 					});
