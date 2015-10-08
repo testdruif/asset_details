@@ -170,9 +170,9 @@ var NRS = (function(NRS, $, undefined) {
 						}
 						Assetaskpricerev = Assetaskprice / (Math.pow(10,8));
 						Assetbidpricerev = Assetbidprice / (Math.pow(10, 8));
-						contentPie.push({label: Assetname,value: parseInt(Assetquantity) * Assetbidprice / (Math.pow(10, 8))});
+						contentPie.push({label: Assetname,value: Assetquantity * Assetbidprice / (Math.pow(10, 8))});
 						draw(contentPie);
-						Assetvalue = Math.round(parseInt(Assetquantity) * Assetbidpricerev);
+						Assetvalue = Math.round(Assetquantity * Assetbidpricerev);
 						contentTable.push([Assetid,Assetname,Assetquantity,Assetvalue,Assetaskpricerev,Assetbidpricerev]);
 						printout(contentTable, response.accountAssets.length);
 					});
