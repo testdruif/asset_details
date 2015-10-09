@@ -128,7 +128,6 @@ var NRS = (function(NRS, $, undefined) {
 				rows += "<td align = center>" + content[i][5] + "</td>";
 				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][0] + " target = iframe_info>" + "Info" + "</a></td>";
 				rows += "</tr>";
-				console.log(content[i][3]);
 				totalvalue += content[i][3];
 			}
 			AssetTotalValue(totalvalue);
