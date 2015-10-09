@@ -1,3 +1,7 @@
+*****Version 2.4.2***** 09/10/2015
+
+* Changed some column naming
+
 *****Version 2.4.1***** 08/10/2015
 
 * Fixed issue with quantity of assets not being calculated correctly (decimals)
