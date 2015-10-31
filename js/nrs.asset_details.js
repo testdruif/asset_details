@@ -137,7 +137,7 @@ var NRS = (function(NRS, $, undefined) {
 	AssetInfo = function() {
 		var contentTable = [];
 		var contentPie = [];
-		NRS.sendRequest("getAccountAssets", {account: NRS.accountRS}, function(response) {
+		NRS.sendRequest("getAccountAssets", {account: NRS.accountRS,includeAssetInfo: true}, function(response) {
 			$.each(response.accountAssets, function(asset, assetinfo) {
 				var Assetquantity = 0;
 				var Assetvalue = 0;
