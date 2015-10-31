@@ -1,3 +1,7 @@
+*****Version 2.4.3***** 31/10/2015
+
+* new api in NRS 1.6.2 requires 'includeAssetInfo: true' to show name and decimals of the asset
+
 *****Version 2.4.2***** 09/10/2015
 
 * Changed some column naming
