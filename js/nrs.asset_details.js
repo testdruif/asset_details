@@ -107,11 +107,11 @@ var NRS = (function(NRS, $, undefined) {
 		$('#time_loaded').html(moment().format('LLL'));
 	}
 	function sortcolumn(a, b) {
-		if (a[1] === b[1]) {
+		if (a[0] === b[0]) {
 			return 0;
 		}
 		else {
-			return (a[1] < b[1]) ? -1 : 1;
+			return (a[0] < b[0]) ? -1 : 1;
 		}
 	}
 	printout = function(content,amount) {
@@ -121,12 +121,12 @@ var NRS = (function(NRS, $, undefined) {
 			content.sort(sortcolumn);
 			for (var i=0; i < content.length; i++) {
 				rows += "<tr>";
-				rows += "<td align = left><a href=\"#\" data-goto-asset=\"" + content[i][0] + "\">" + content[i][1] + "</a></td>";
-				rows += "<td align = center>" + content[i][2] + "</td>";
+				rows += "<td align = left><a href=\"#\" data-goto-asset=\"" + content[i][1] + "\">" + content[i][2] + "</a></td>";
 				rows += "<td align = center>" + content[i][3] + "</td>";
 				rows += "<td align = center>" + content[i][4] + "</td>";
 				rows += "<td align = center>" + content[i][5] + "</td>";
-				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][0] + " target = iframe_info>" + "Info" + "</a></td>";
+				rows += "<td align = center>" + content[i][6] + "</td>";
+				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][1] + " target = iframe_info>" + "Info" + "</a></td>";
 				rows += "</tr>";
 				totalvalue += content[i][3];
 			}
@@ -172,7 +172,7 @@ var NRS = (function(NRS, $, undefined) {
 						contentPie.push({label: Assetname,value: Assetquantity * Assetbidprice / (Math.pow(10, 8))});
 						draw(contentPie);
 						Assetvalue = Math.round(Assetquantity * Assetbidpricerev);
-						contentTable.push([Assetid,Assetname,Assetquantity,Assetvalue,Assetaskpricerev,Assetbidpricerev]);
+						contentTable.push([Assetname.toLowerCase(),Assetid,Assetname,Assetquantity,Assetvalue,Assetaskpricerev,Assetbidpricerev]);
 						printout(contentTable, response.accountAssets.length);
 					});
 				});
