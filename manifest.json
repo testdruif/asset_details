@@ -1,7 +1,7 @@
 {
   "pluginVersion": 1,
   "name": "Asset Details",
-  "myVersion": "v.2.4.4",
+  "myVersion": "v.2.4.5",
   "shortDescription": "Gives an overview of all your assets with a link to Mynxt for more details and graphs",
   "infoUrl": "https://nxtforum.org/nxt-plugins/asset-details-links-to-mynxt/",
   "startPage": "p_asset_details",

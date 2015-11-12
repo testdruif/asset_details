@@ -1,3 +1,7 @@
+*****Version 2.4.5***** 12/11/2015
+
+* Fixed calculation of total current value
+
 *****Version 2.4.4***** 02/11/2015
 
 * Fixed sorting of assets alphabetically
