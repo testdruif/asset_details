@@ -1,3 +1,7 @@
+*****Version 2.4.6***** 14/11/2015
+
+* Fixed url of mynxt.info when first loading the plugin (from https://mynxt.info to https://www.mynxt.info)
+
 *****Version 2.4.5***** 12/11/2015
 
 * Fixed calculation of total current value
