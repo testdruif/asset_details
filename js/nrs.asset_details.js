@@ -1,4 +1,7 @@
 var NRS = (function(NRS, $, undefined) {
+	var contentTable = [];
+	var contentPie = [];
+
 	getAsset = function(id, cb) {
 		NRS.sendRequest("getAsset+", {"asset": id.toString()}, function(asset, input) {cb(asset);});
 	};
@@ -82,11 +85,9 @@ var NRS = (function(NRS, $, undefined) {
 			}
 		});
 	};
-	draw = function(dataContent) {
-		if (dataContent.length === NRS.accountInfo.assetBalances.length) {
+	AssetDrawPie = function(dataContent) {
 			$('#asset_details_page>.content').prepend('<span id="DistributionChart"></span>');
 			drawChart('DistributionChart', 'Asset Distribution', dataContent);
-		}
 	};
 	AssetAmount = function() {
 		NRS.sendRequest("getAccountAssetCount", {account: NRS.accountRS}, function(AssetAmount) {
@@ -114,29 +115,25 @@ var NRS = (function(NRS, $, undefined) {
 			return (a[0] < b[0]) ? -1 : 1;
 		}
 	}
-	printout = function(content,amount) {
-		if (content.length === amount) {
-			rows = "";
+	AssetPrintout = function(content) {
+			rows_asset_details = "";
 			totalvalue = 0;
 			content.sort(sortcolumn);
 			for (var i=0; i < content.length; i++) {
-				rows += "<tr>";
-				rows += "<td align = left><a href=\"#\" data-goto-asset=\"" + content[i][1] + "\">" + content[i][2] + "</a></td>";
-				rows += "<td align = center>" + content[i][3] + "</td>";
-				rows += "<td align = center>" + content[i][4] + "</td>";
-				rows += "<td align = center>" + content[i][5] + "</td>";
-				rows += "<td align = center>" + content[i][6] + "</td>";
-				rows += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][1] + " target = iframe_info>" + "Info" + "</a></td>";
-				rows += "</tr>";
+				rows_asset_details += "<tr>";
+				rows_asset_details += "<td align = left><a href=\"#\" data-goto-asset=\"" + content[i][1] + "\">" + content[i][2] + "</a></td>";
+				rows_asset_details += "<td align = center>" + content[i][3] + "</td>";
+				rows_asset_details += "<td align = center>" + content[i][4] + "</td>";
+				rows_asset_details += "<td align = center>" + content[i][5] + "</td>";
+				rows_asset_details += "<td align = center>" + content[i][6] + "</td>";
+				rows_asset_details += "<td align = center><a href=https://www.mynxt.info/asset/" + content[i][1] + " target = iframe_info>" + "Info" + "</a></td>";
+				rows_asset_details += "</tr>";
 				totalvalue += content[i][4];
 			}
 			AssetTotalValue(totalvalue);
-			NRS.dataLoaded(rows);
-		}
+			NRS.dataLoaded(rows_asset_details);
 	};
 	AssetInfo = function() {
-		var contentTable = [];
-		var contentPie = [];
 		NRS.sendRequest("getAccountAssets", {account: NRS.accountRS,includeAssetInfo: true}, function(response) {
 			$.each(response.accountAssets, function(asset, assetinfo) {
 				var Assetquantity = 0;
@@ -170,21 +167,26 @@ var NRS = (function(NRS, $, undefined) {
 						Assetaskpricerev = Assetaskprice / (Math.pow(10,8));
 						Assetbidpricerev = Assetbidprice / (Math.pow(10, 8));
 						contentPie.push({label: Assetname,value: Assetquantity * Assetbidprice / (Math.pow(10, 8))});
-						draw(contentPie);
 						Assetvalue = Math.round(Assetquantity * Assetbidpricerev);
 						contentTable.push([Assetname.toLowerCase(),Assetid,Assetname,Assetquantity,Assetvalue,Assetaskpricerev,Assetbidpricerev]);
-						printout(contentTable, response.accountAssets.length);
+
 					});
 				});
 			});
 		});
 	}
+
+	NRS.setup.p_asset_details = function() {
+		AssetInfo();
+	}
+
 	NRS.pages.p_asset_details = function() {
 		AssetTimeLoaded();
 		AssetAccount();
 		AssetAmount();
-		AssetInfo();
-		NRS.dataLoaded();
+		AssetDrawPie(contentPie);
+		AssetPrintout(contentTable);
+
 	}
 	return NRS;
 }(NRS || {}, jQuery));
