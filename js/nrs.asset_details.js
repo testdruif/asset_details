@@ -177,6 +177,8 @@ var NRS = (function(NRS, $, undefined) {
 	}
 
 	NRS.setup.p_asset_details = function() {
+		contentTable = [];
+	        contentPie = [];
 		AssetInfo();
 	}
 
@@ -186,7 +188,7 @@ var NRS = (function(NRS, $, undefined) {
 		AssetAmount();
 		AssetDrawPie(contentPie);
 		AssetPrintout(contentTable);
-
+	NRS.setup.p_asset_details();
 	}
 	return NRS;
 }(NRS || {}, jQuery));
